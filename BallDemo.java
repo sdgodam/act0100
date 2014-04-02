@@ -34,12 +34,15 @@ public class BallDemo
         myCanvas.drawLine(50, ground, 550, ground);
         //declarate and inicialize Array of balls
         BouncingBall[] ball = new BouncingBall[numBolas];
+        //Array of colors
+        Color[] color = {Color.RED,Color.GREEN,Color.YELLOW,Color.BLACK,Color.ORANGE,Color.CYAN,Color.BLUE,Color.DARK_GRAY};
         // crate and show the balls
         for(int i=0; i<numBolas; i++){
             Random diameter = new Random();
             Random xPosition = new Random();
             Random yPosition = new Random();
-            ball[i] = new BouncingBall(3 + xPosition.nextInt(200),3 + yPosition.nextInt(300), 10 + diameter.nextInt(14), Color.RED, ground, myCanvas);
+            Random colorNumber = new Random();
+            ball[i] = new BouncingBall(3 + xPosition.nextInt(200),3 + yPosition.nextInt(300), 10 + diameter.nextInt(30), color[colorNumber.nextInt(8)], ground, myCanvas);
             ball[i].draw();
         }
         // make them bounce
