@@ -37,7 +37,9 @@ public class BallDemo
         // crate and show the balls
         for(int i=0; i<numBolas; i++){
             Random diameter = new Random();
-            ball[i] = new BouncingBall(70, 80, 10 + diameter.nextInt(14), Color.RED, ground, myCanvas);
+            Random xPosition = new Random();
+            Random yPosition = new Random();
+            ball[i] = new BouncingBall(3 + xPosition.nextInt(200),3 + yPosition.nextInt(300), 10 + diameter.nextInt(14), Color.RED, ground, myCanvas);
             ball[i].draw();
         }
         // make them bounce
