@@ -66,7 +66,7 @@ public class BallDemo
         }
     }
 
-    public void boxBounce()
+    public void boxBounce(int numBolas)
     {
         int ground = 450;
         int left = 50;
@@ -84,12 +84,22 @@ public class BallDemo
         myCanvas.drawLine(left, ground, right, ground);
         //derecha de arriba a abajo
         myCanvas.drawLine(right, top, right, ground);
+        //declarate and inicialize Array of balls
+        BoxBall[] ball = new BoxBall[numBolas];
+        //create and show the balls
+        for(int i=0; i<numBolas; i++){
+            ball[i] = new BoxBall(54, 54, 20, Color.BLUE, ground, left, right, top, myCanvas);
+            ball[i].draw();            
+        }
 
-        BoxBall ball = new BoxBall(54, 54, 20, Color.BLUE, ground, left, right, top, myCanvas);
-        ball.draw();
-        for(int i=1; i<1000; i++){
-            myCanvas.wait(50);           // small delay
-            ball.move();
+        // make them bounce
+        boolean finished =  false;
+        while(!finished) {
+            myCanvas.wait(50); 
+            //moving balls
+            for(int i=0; i<numBolas; i++){
+                ball[i].move();
+            }
         }
     }
 }
