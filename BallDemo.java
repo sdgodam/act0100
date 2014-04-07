@@ -65,9 +65,24 @@ public class BallDemo
             }
         }
     }
-    
-    public void boxBounce(int numBolas)
+
+    public void boxBounce()
     {
-        
+        int ground = 450;
+        int left = 50;
+        int right = 550;
+        int top = 50;
+
+        myCanvas.setVisible(true);
+
+        // draw the rectangle
+        //sup de izq a derecha
+        myCanvas.drawLine(left, top, right, top);
+        //izquierda de arriba a abajo
+        myCanvas.drawLine(left, left, left, ground);
+        //abajo de izq a derecha
+        myCanvas.drawLine(left, ground, right, ground);
+        //derecha de arriba a abajo
+        myCanvas.drawLine(right, top, right, ground);
     }
 }
