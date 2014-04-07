@@ -84,5 +84,12 @@ public class BallDemo
         myCanvas.drawLine(left, ground, right, ground);
         //derecha de arriba a abajo
         myCanvas.drawLine(right, top, right, ground);
+
+        BoxBall ball = new BoxBall(54, 54, 20, Color.BLUE, ground, left, right, top, myCanvas);
+        ball.draw();
+        for(int i=1; i<1000; i++){
+            myCanvas.wait(50);           // small delay
+            ball.move();
+        }
     }
 }

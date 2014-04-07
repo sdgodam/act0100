@@ -26,8 +26,8 @@ public class BoxBall
     private final int rightPosition;       // right x position of rectangle
     private final int topPosition;         // y position of top
     private Canvas canvas;
-    private int ySpeed = 1;                // initial y position speed
-    private int xSpeed = 1;                // initial x position speed
+    private int ySpeed = 10;                // initial y position speed
+    private int xSpeed = 10;                // initial x position speed
 
     /**
      * Constructor for objects of class BoxBall
@@ -95,13 +95,13 @@ public class BoxBall
         }
         
         if(xPosition >= (leftPosition - diameter)) {
-            xPosition = (int)(leftPosition - diameter);
+            //xPosition = (int)(leftPosition - diameter);
             xSpeed = -xSpeed;
             ySpeed = ySpeed;
         }
         
         if(xPosition <= (rightPosition - diameter)) {
-            xPosition = (int)(rightPosition - diameter);
+            //xPosition = (int)(rightPosition - diameter);
             xSpeed = -xSpeed;
             ySpeed = ySpeed;
         }
