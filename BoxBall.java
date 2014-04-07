@@ -79,16 +79,32 @@ public class BoxBall
         erase();
             
         // compute new position
-        //ySpeed += GRAVITY;
         yPosition += ySpeed;
-        xPosition +=1;
+        xPosition += xSpeed;
 
         // check if it has hit the ground
-        if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
+        if(yPosition >= (groundPosition - diameter)) {
             yPosition = (int)(groundPosition - diameter);
-            //ySpeed = -ySpeed + ballDegradation; 
+            ySpeed = -ySpeed;
+            xSpeed = xSpeed;
         }
-
+        
+        if(yPosition <= topPosition) {
+            ySpeed = -ySpeed;
+            xSpeed = xSpeed;
+        }
+        
+        if(xPosition >= (leftPosition - diameter)) {
+            xPosition = (int)(leftPosition - diameter);
+            xSpeed = -xSpeed;
+            ySpeed = ySpeed;
+        }
+        
+        if(xPosition <= (rightPosition - diameter)) {
+            xPosition = (int)(rightPosition - diameter);
+            xSpeed = -xSpeed;
+            ySpeed = ySpeed;
+        }
         // draw again at new position
         draw();
     }    
