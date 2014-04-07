@@ -65,4 +65,9 @@ public class BallDemo
             }
         }
     }
+    
+    public void boxBounce(int numBolas)
+    {
+        
+    }
 }

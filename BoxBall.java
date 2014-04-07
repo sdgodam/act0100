@@ -2,10 +2,8 @@ import java.awt.*;
 import java.awt.geom.*;
 
 /**
- * Class BoxBall - a graphical ball that observes the effect of gravity. The ball
- * has the ability to move. Details of movement are determined by the ball itself. It
- * will fall downwards, accelerating with time due to the effect of gravity, and bounce
- * upward again when hitting the ground.
+ * Class BoxBall - a graphical ball that has the ability to move. Details of movement are determined by the ball itself. It
+ * will fall downwards and bounce upward again when hitting the ground.
  *
  * This movement can be initiated by repeated calls to the "move" method.
  * 
@@ -18,17 +16,18 @@ import java.awt.geom.*;
 
 public class BoxBall
 {
-    private static final int GRAVITY = 3;  // effect of gravity
-
-    private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
     private int xPosition;
     private int yPosition;
     private final int groundPosition;      // y position of ground
+    private final int leftPosition;        // left x position of rectangle
+    private final int rightPosition;       // right x position of rectangle
+    private final int topPosition;         // y position of top
     private Canvas canvas;
-    private int ySpeed = 1;                // initial downward speed
+    private int ySpeed = 1;                // initial y position speed
+    private int xSpeed = 1;                // initial x position speed
 
     /**
      * Constructor for objects of class BoxBall
@@ -40,14 +39,17 @@ public class BoxBall
      * @param groundPos  the position of the ground (where the wall will bounce)
      * @param drawingCanvas  the canvas to draw this ball on
      */
-    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, Canvas drawingCanvas)
+    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,int groundPos,
+    int leftPos, int rightPos, int topPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
         color = ballColor;
         diameter = ballDiameter;
         groundPosition = groundPos;
+        leftPosition = leftPos;
+        rightPosition = rightPos;
+        topPosition = topPos;
         canvas = drawingCanvas;
     }
 
@@ -77,14 +79,14 @@ public class BoxBall
         erase();
             
         // compute new position
-        ySpeed += GRAVITY;
+        //ySpeed += GRAVITY;
         yPosition += ySpeed;
         xPosition +=1;
 
         // check if it has hit the ground
         if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
             yPosition = (int)(groundPosition - diameter);
-            ySpeed = -ySpeed + ballDegradation; 
+            //ySpeed = -ySpeed + ballDegradation; 
         }
 
         // draw again at new position
