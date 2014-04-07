@@ -86,24 +86,21 @@ public class BoxBall
         if(yPosition >= (groundPosition - diameter)) {
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed;
-            xSpeed = xSpeed;
         }
         
         if(yPosition <= topPosition) {
+            yPosition = (int)topPosition;
             ySpeed = -ySpeed;
-            xSpeed = xSpeed;
         }
         
-        if(xPosition >= (leftPosition - diameter)) {
-            //xPosition = (int)(leftPosition - diameter);
+        if(xPosition <= (leftPosition)) {
+            xPosition = (int)leftPosition;
             xSpeed = -xSpeed;
-            ySpeed = ySpeed;
         }
         
-        if(xPosition <= (rightPosition - diameter)) {
-            //xPosition = (int)(rightPosition - diameter);
+        if(xPosition >= (rightPosition - diameter)) {
+            xPosition = (int)(rightPosition - diameter);
             xSpeed = -xSpeed;
-            ySpeed = ySpeed;
         }
         // draw again at new position
         draw();
