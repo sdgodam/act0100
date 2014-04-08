@@ -88,7 +88,16 @@ public class BallDemo
         BoxBall[] ball = new BoxBall[numBolas];
         //create and show the balls
         for(int i=0; i<numBolas; i++){
-            ball[i] = new BoxBall(54, 54, 20, Color.BLUE, ground, left, right, top, myCanvas);
+            Random diameter = new Random();
+            int aleatoryDiameter = 1;
+            boolean par = true;             //los impares no se pasan de las lineas
+            while(par){
+                aleatoryDiameter = diameter.nextInt(30);
+                if((aleatoryDiameter % 2) != 0){
+                    par = false;
+                }
+            }
+            ball[i] = new BoxBall(63, 63, 10 + aleatoryDiameter, Color.BLUE, ground, left, right, top, myCanvas);
             ball[i].draw();            
         }
 
