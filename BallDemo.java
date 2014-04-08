@@ -86,6 +86,8 @@ public class BallDemo
         myCanvas.drawLine(right, top, right, ground);
         //declarate and inicialize Array of balls
         BoxBall[] ball = new BoxBall[numBolas];
+        //Array of colors
+        Color[] color = {Color.RED,Color.GREEN,Color.YELLOW,Color.BLACK,Color.ORANGE,Color.CYAN,Color.BLUE,Color.DARK_GRAY};
         //create and show the balls
         for(int i=0; i<numBolas; i++){
             Random diameter = new Random();
@@ -99,7 +101,8 @@ public class BallDemo
             }
             Random xPosition = new Random();
             Random yPosition = new Random();
-            ball[i] = new BoxBall(63 + xPosition.nextInt(200), 63 + yPosition.nextInt(300), 10 + aleatoryDiameter, Color.BLUE, ground, left, right, top, myCanvas);
+            Random colorNumber = new Random();
+            ball[i] = new BoxBall(63 + xPosition.nextInt(200), 63 + yPosition.nextInt(300), 10 + aleatoryDiameter, color[colorNumber.nextInt(8)], ground, left, right, top, myCanvas);
             ball[i].draw();            
         }
 
