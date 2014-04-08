@@ -97,7 +97,9 @@ public class BallDemo
                     par = false;
                 }
             }
-            ball[i] = new BoxBall(63, 63, 10 + aleatoryDiameter, Color.BLUE, ground, left, right, top, myCanvas);
+            Random xPosition = new Random();
+            Random yPosition = new Random();
+            ball[i] = new BoxBall(63 + xPosition.nextInt(200), 63 + yPosition.nextInt(300), 10 + aleatoryDiameter, Color.BLUE, ground, left, right, top, myCanvas);
             ball[i].draw();            
         }
 
