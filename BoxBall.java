@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
+import java.util.Random;
 
 /**
  * Class BoxBall - a graphical ball that has the ability to move. Details of movement are determined by the ball itself. It
@@ -51,6 +52,16 @@ public class BoxBall
         rightPosition = rightPos;
         topPosition = topPos;
         canvas = drawingCanvas;
+        //vamos a hacer la direccion de la bola aleaatoria
+        Random direction = new Random();
+        int aleatoryDirectionY = direction.nextInt(2);
+        if(aleatoryDirectionY == 0){
+            ySpeed = -ySpeed;            
+        }
+        int aleatoryDirectionX = direction.nextInt(2);
+        if(aleatoryDirectionX == 0){
+            xSpeed = -xSpeed;            
+        }
     }
 
     /**
